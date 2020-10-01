@@ -9,7 +9,6 @@ exports.getAllByFilter = async(filter) => {
     const res = await Book.find({
         theme: filter.theme
     })
-
     return res
 }
 
@@ -17,7 +16,6 @@ exports.getByTitle = async(title) => {
     const res = await Book.findOne({
         title
     })
-
     return res
 }
 
@@ -33,7 +31,6 @@ exports.update = async(_id, { imageUrl, author, theme, description }) => {
             author,     
             theme, 
             description,
-           
         }
     })
 }
