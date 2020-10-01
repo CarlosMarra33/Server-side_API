@@ -9,13 +9,11 @@ const BookRoute = require('./routes/bookRoute')
 
 const app = express();
 
-// Settings
-    // Cors
+
     app.use(cors())
-    // Body Parser
+    
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: false }))
-// Mongo
 mongoose.connect(process.env.MONGO_URL, {
     useFindAndModify: false,
     useNewUrlParser: true,
@@ -26,7 +24,6 @@ mongoose.connect(process.env.MONGO_URL, {
 }).catch((err) => {
     console.log(`Connection error: ${err}`);
 })
-// Routes
 app.use('/', BookRoute)
 app.use('/books', BookRoute)
 
